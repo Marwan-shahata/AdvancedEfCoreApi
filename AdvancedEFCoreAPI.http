@@ -1,0 +1,26 @@
+@AdvancedEFCoreAPI_HostAddress = http://localhost:5075
+
+GET {{AdvancedEFCoreAPI_HostAddress}}/api/products?pageNumber=1&pageSize=2
+Accept: application/json
+
+###
+
+GET {{AdvancedEFCoreAPI_HostAddress}}/api/products/1
+Accept: application/json
+
+###
+
+# Replace RowVersion with the Base64 value returned from GET.
+PUT {{AdvancedEFCoreAPI_HostAddress}}/api/products/1
+Content-Type: application/json
+
+{
+  "name": "Laptop Pro",
+  "price": 47000.00,
+  "categoryId": 1,
+  "rowVersion": "REPLACE_WITH_BASE64_ROWVERSION"
+}
+
+###
+
+DELETE {{AdvancedEFCoreAPI_HostAddress}}/api/products/5
